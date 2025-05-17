@@ -1,0 +1,594 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Yocto学习之Yocto常见问题 | 马哥私房菜</title><meta name="author" content="mage"><meta name="copyright" content="mage"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Yocto 常见问题来自 https:&#x2F;&#x2F;gitee.com&#x2F;lengjingzju&#x2F;cbuild-ng&#x2F;blob&#x2F;main&#x2F;notes&#x2F;yoctoqa.md 怎么学习 Yocto 官方文档答：如下列表：三颗星需要详细了解，两颗星只要大概了解，一颗星需要时去查阅，其它文档需要深入学习 Yocto 时再了解  入门知识 快速构建★★★ 使用建议★★☆ 项目介绍★★☆ 项目概念★★★   参考手册 目">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Yocto学习之Yocto常见问题">
+<meta property="og:url" content="https://magesfc.github.io/mage/fa5fa95b78d6e132d7e2df8e2d76633e76def64c/">
+<meta property="og:site_name" content="马哥私房菜">
+<meta property="og:description" content="Yocto 常见问题来自 https:&#x2F;&#x2F;gitee.com&#x2F;lengjingzju&#x2F;cbuild-ng&#x2F;blob&#x2F;main&#x2F;notes&#x2F;yoctoqa.md 怎么学习 Yocto 官方文档答：如下列表：三颗星需要详细了解，两颗星只要大概了解，一颗星需要时去查阅，其它文档需要深入学习 Yocto 时再了解  入门知识 快速构建★★★ 使用建议★★☆ 项目介绍★★☆ 项目概念★★★   参考手册 目">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://t.alcy.cc/fj/">
+<meta property="article:published_time" content="2025-05-17T01:06:25.000Z">
+<meta property="article:modified_time" content="2025-05-17T01:06:25.000Z">
+<meta property="article:author" content="mage">
+<meta property="article:tag" content="yocto">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://t.alcy.cc/fj/"><link rel="shortcut icon" href="https://t.alcy.cc/tx"><link rel="canonical" href="https://magesfc.github.io/mage/fa5fa95b78d6e132d7e2df8e2d76633e76def64c/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":400},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":150,"languages":{"author":"作者: mage","link":"链接: ","source":"来源: 马哥私房菜","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Yocto学习之Yocto常见问题',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-05-17 09:06:25'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><style type="text/css">.card-announcement .social-button{margin:.6rem 0 0 0;text-align:center}.card-announcement .social-button a{display:block;background-color:var(--btn-bg);color:var(--btn-color);text-align:center;line-height:2.4;margin:4px 0}.card-announcement .social-button a:hover{background-color:var(--btn-hover-color)}</style><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "/img/loading.gif" data-lazy-src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">221</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">238</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">44</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-compass"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-book"></i><span> 精选文档</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="https://butterfly.js.org/posts/21cfbf15/"><span> 🚀 快速开始</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://butterfly.js.org/posts/dc584b87/"><span> 📑 主题页面</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://butterfly.js.org/posts/4aa8abbe/"><span> 🛠 主题配置-1</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://butterfly.js.org/posts/ceeb73f/"><span> 🛠 主题配置-2</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://butterfly.js.org/posts/98d20436/"><span> ❓ 主题问答</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://butterfly.js.org/posts/4073eda/"><span> ⚡️ 进阶教程</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://butterfly.js.org/posts/198a4240/"><span> ✨ 更新日志</span></a></li></ul></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://butterfly.js.org/link/"><i class="fa-fw fas fa-thumbs-up"></i><span> 其他示例</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://t.alcy.cc/fj/')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">马哥私房菜</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-compass"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-book"></i><span> 精选文档</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="https://butterfly.js.org/posts/21cfbf15/"><span> 🚀 快速开始</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://butterfly.js.org/posts/dc584b87/"><span> 📑 主题页面</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://butterfly.js.org/posts/4aa8abbe/"><span> 🛠 主题配置-1</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://butterfly.js.org/posts/ceeb73f/"><span> 🛠 主题配置-2</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://butterfly.js.org/posts/98d20436/"><span> ❓ 主题问答</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://butterfly.js.org/posts/4073eda/"><span> ⚡️ 进阶教程</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://butterfly.js.org/posts/198a4240/"><span> ✨ 更新日志</span></a></li></ul></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://butterfly.js.org/link/"><i class="fa-fw fas fa-thumbs-up"></i><span> 其他示例</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Yocto学习之Yocto常见问题</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-05-17T01:06:25.000Z" title="发表于 2025-05-17 09:06:25">2025-05-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-05-17T01:06:25.000Z" title="更新于 2025-05-17 09:06:25">2025-05-17</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/yocto/">yocto</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Yocto学习之Yocto常见问题"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Yocto-常见问题"><a href="#Yocto-常见问题" class="headerlink" title="Yocto 常见问题"></a>Yocto 常见问题</h1><p>来自 <a target="_blank" rel="noopener" href="https://gitee.com/lengjingzju/cbuild-ng/blob/main/notes/yoctoqa.md">https://gitee.com/lengjingzju/cbuild-ng/blob/main/notes/yoctoqa.md</a></p>
+<h2 id="怎么学习-Yocto-官方文档"><a href="#怎么学习-Yocto-官方文档" class="headerlink" title="怎么学习 Yocto 官方文档"></a>怎么学习 Yocto 官方文档</h2><p>答：如下列表：三颗星需要详细了解，两颗星只要大概了解，一颗星需要时去查阅，其它文档需要深入学习 Yocto 时再了解</p>
+<ul>
+<li>入门知识<ul>
+<li><a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/brief-yoctoprojectqs/index.html">快速构建★★★</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/what-i-wish-id-known.html">使用建议★★☆</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/overview-manual/yp-intro.html">项目介绍★★☆</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/overview-manual/concepts.html">项目概念★★★</a></li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/ref-manual/index.html">参考手册</a><ul>
+<li><a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/ref-manual/structure.html">目录结构★★★</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/ref-manual/classes.html">配方类★☆☆</a><ul>
+<li><a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/ref-manual/classes.html#insane-bbclass">QA检查★★☆</a></li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/ref-manual/tasks.html">任务简介★★★</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/ref-manual/devtool-reference.html">devtool命令★☆☆</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/ref-manual/qa-checks.html">QA问题★★☆</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/ref-manual/variables.html">变量词汇表★☆☆</a></li>
+</ul>
+</li>
+<li>开发手册<ul>
+<li><a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/bsp-guide/bsp.html">BSP开发★★☆</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/kernel-dev/index.html">内核开发★★☆</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/dev-manual/common-tasks.html">常见任务★★☆</a><ul>
+<li><a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/dev-manual/common-tasks.html#understanding-and-creating-layers">编写meta★★★</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/dev-manual/common-tasks.html#customizing-images">编写image★★★</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/dev-manual/common-tasks.html#writing-a-new-recipe">编写recipe★★★</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/dev-manual/common-tasks.html#adding-a-new-machine">编写machine★★★</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/dev-manual/common-tasks.html#working-with-pre-built-libraries">了解package★★★</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/bitbake/2.0/index.html">语法手册</a><ul>
+<li><a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/bitbake/2.0/bitbake-user-manual/bitbake-user-manual-intro.html">基本概念★★☆</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/bitbake/2.0/bitbake-user-manual/bitbake-user-manual-execution.html">执行简介★☆☆</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/bitbake/2.0/bitbake-user-manual/bitbake-user-manual-metadata.html">语法运算★★★</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/bitbake/2.0/bitbake-user-manual/bitbake-user-manual-fetching.html">文件获取★☆☆</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/bitbake/2.0/bitbake-user-manual/bitbake-user-manual-ref-variables.html">变量词汇表★☆☆</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/dev-manual/common-tasks.html#recipe-logging-mechanisms">打印调试★★★</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="Yocto-配方模板"><a href="#Yocto-配方模板" class="headerlink" title="Yocto 配方模板"></a>Yocto 配方模板</h2><h3 id="编写类文件-xxx-bbclass"><a href="#编写类文件-xxx-bbclass" class="headerlink" title="编写类文件 (xxx.bbclass)"></a>编写类文件 (xxx.bbclass)</h3><ul>
+<li><p>可以在类文件中 <code>meta-xxx/classes/xxx.bbclass</code> 定义环境变量，在配方文件中继承 <code>inherit xxx</code></p>
+</li>
+<li><p>例如 cbuild.bbclass</p>
+  <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> WORKDIR</span><br><span class="line"><span class="built_in">export</span> ENV_TOP_DIR</span><br><span class="line"><span class="built_in">export</span> ENV_MAKE_DIR = <span class="string">&quot;<span class="variable">$&#123;ENV_TOP_DIR&#125;</span>/scripts/core&quot;</span></span><br><span class="line"><span class="built_in">export</span> ENV_TOOL_DIR = <span class="string">&quot;<span class="variable">$&#123;ENV_TOP_DIR&#125;</span>/scripts/bin&quot;</span></span><br><span class="line"><span class="built_in">export</span> ENV_CFG_ROOT = <span class="string">&quot;<span class="variable">$&#123;TOPDIR&#125;</span>/config&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> ENV_BUILD_MODE = <span class="string">&quot;yocto&quot;</span></span><br><span class="line">NATIVE_BUILD:class-target = <span class="string">&quot;n&quot;</span></span><br><span class="line">NATIVE_BUILD:class-native = <span class="string">&quot;y&quot;</span></span><br><span class="line"><span class="built_in">export</span> NATIVE_BUILD</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="编写配方文件-xxx-bb"><a href="#编写配方文件-xxx-bb" class="headerlink" title="编写配方文件 (xxx.bb)"></a>编写配方文件 (xxx.bb)</h3><ul>
+<li><p><code>recipetool create -o &lt;xxx.bb&gt; &lt;package_src_dir&gt;</code> 创建一个基本配方，例子中手动增加的条目说明如下</p>
+<br>
+</li>
+<li><p>包依赖</p>
+<ul>
+<li>包依赖其他包时需要使用 <code>DEPENDS += &quot;package1 package2&quot;</code> 说明</li>
+<li>链接其它包时 (<code>LDFLAGS += -lname1 -lname2</code>) 的动态库，需要增加 <code>RDEPENDS:$&#123;PN&#125; += &quot;package1 package2&quot;</code> 说明<ul>
+<li>不写可能编译失败或动态库没有安装到 rootfs</li>
+</ul>
+</li>
+<li>依赖主机工具时需要使用 <code>DEPENDS += &quot;package3-native&quot;</code> 说明<br></li>
+</ul>
+</li>
+<li><p>编译继承类</p>
+<ul>
+<li>使用 menuconfig 需要继承 <code>inherit kconfig</code><ul>
+<li>如果命令是 <code>make -f wrapper.mk menuconfig</code><ul>
+<li>需要设置 <code>KCONFIG_CONFIG_COMMAND = &quot;-f wrapper.mk menuconfig&quot;</code></li>
+<li>需要设置 <code>KCONFIG_DEFCONFIG_COMMAND = &quot;-f wrapper.mk defconfig&quot;</code></li>
+</ul>
+</li>
+<li>如果 .config 输出目录是编译输出目录，需要设置 <code>KCONFIG_CONFIG_PATH = &quot;$&#123;WORKDIR&#125;/build/.config&quot;</code></li>
+</ul>
+</li>
+<li>使用 Makefile 编译应用继承 <code>inherit sanity</code>，使用 cmake 编译应用继承 <code>inherit cmake</code></li>
+<li>编译外部内核模块继承 <code>inherit module</code></li>
+<li>编译主机本地工具继承 <code>inherit native</code></li>
+<li>一个配方同时支持交叉编译和本地编译需要声明 <code>BBCLASSEXTEND = &quot;native&quot;</code>，无需继承 <code>inherit native</code><ul>
+<li>如果变量值在交叉编译和本地编译不同时，使用下面覆盖语法<ul>
+<li><code>somevar:class-target = &quot;some value&quot;</code></li>
+<li><code>somevar:class-native = &quot;some value&quot;</code><br></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>安装和打包</p>
+<ul>
+<li>设置的变量<ul>
+<li>includedir 指 xxx&#x2F;usr&#x2F;include</li>
+<li>base_libdir 指 xxx&#x2F;lib;  libdir指 xxx&#x2F;usr&#x2F;lib;  bindir指 xxx&#x2F;usr&#x2F;bin; datadir 指 xxx&#x2F;usr&#x2F;share</li>
+<li>有时候需要精确指定打包的文件而不是目录，防止多个打包的目录有重合导致打包出错</li>
+<li>更多目录信息参考 Poky 工程的 <code>meta/conf/bitbake.conf</code> 文件  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">FILES:$&#123;PN&#125;-dev = &quot;$&#123;includedir&#125;&quot;</span><br><span class="line">FILES:$&#123;PN&#125; = &quot;$&#123;base_libdir&#125; $&#123;libdir&#125; $&#123;bindir&#125; $&#123;datadir&#125;&quot;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>继承 <code>inherit sanity</code> 或 <code>inherit cmake</code> 时需要按实际情况指定打包的目录，否则 do_package 任务出错</li>
+<li>继承 <code>inherit module</code> 不需要指定头文件和模块文件的打包的目录，但如果安装其它文件时，需要指定这个文件的打包目录</li>
+<li>忽略某些警告和错误<ul>
+<li><code>ALLOW_EMPTY:$&#123;PN&#125; = &quot;1&quot;</code> 忽略包安装的文件只有头文件或为空，生成镜像时 do_rootfs 错误</li>
+<li><code>INSANE_SKIP:$&#123;PN&#125; += &quot;dev-so&quot;</code> 忽略安装的文件是符号链接的错误<ul>
+<li>更多信息参考 <a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/ref-manual/classes.html?highlight=sanity#insane-bbclass">insane.bbclass</a><br></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>配方模板</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">LICENSE = &quot;CLOSED&quot;</span><br><span class="line">LIC_FILES_CHKSUM = &quot;&quot;</span><br><span class="line">SRC_URI = &quot;&quot;</span><br><span class="line"></span><br><span class="line">#DEPENDS += &quot;package1 package2&quot;</span><br><span class="line">#RDEPENDS:$&#123;PN&#125; += &quot;package1 package2&quot;</span><br><span class="line"></span><br><span class="line">inherit cbuild</span><br><span class="line"></span><br><span class="line">#KCONFIG_CONFIG_COMMAND = &quot;-f wrapper.mk menuconfig&quot;</span><br><span class="line">#KCONFIG_DEFCONFIG_COMMAND = &quot;-f wrapper.mk defconfig&quot;</span><br><span class="line">#KCONFIG_CONFIG_PATH = &quot;$&#123;WORKDIR&#125;/build/.config&quot;</span><br><span class="line">#inherit kconfig</span><br><span class="line"></span><br><span class="line">inherit sanity</span><br><span class="line">#inherit cmake</span><br><span class="line">#inherit module</span><br><span class="line">#inherit native</span><br><span class="line"></span><br><span class="line">do_configure () &#123;</span><br><span class="line">    :</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">do_compile () &#123;</span><br><span class="line">    oe_runmake</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">do_install () &#123;</span><br><span class="line">    oe_runmake install</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ALLOW_EMPTY:$&#123;PN&#125; = &quot;1&quot;</span><br><span class="line">INSANE_SKIP:$&#123;PN&#125; += &quot;dev-so&quot;</span><br><span class="line">FILES:$&#123;PN&#125;-dev = &quot;$&#123;includedir&#125;&quot;</span><br><span class="line">FILES:$&#123;PN&#125; = &quot;$&#123;base_libdir&#125; $&#123;libdir&#125; $&#123;bindir&#125; $&#123;datadir&#125;&quot;</span><br><span class="line"></span><br><span class="line">#BBCLASSEXTEND = &quot;native&quot;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>注: <a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/migration-guides/migration-3.4.html#override-syntax-changes">从3.4版本开始，对变量的覆盖样式语法由下滑线 <code>_</code> 变成了冒号 <code>:</code></a></p>
+<h3 id="编写配方附加文件-xxx-bbappend"><a href="#编写配方附加文件-xxx-bbappend" class="headerlink" title="编写配方附加文件 (xxx.bbappend)"></a>编写配方附加文件 (xxx.bbappend)</h3><ul>
+<li><p>配方附加文件在 cbuild 的实现中，主要作用是指示包的源码路径和 Makefile 路径，一般这两个路径一样</p>
+<br>
+</li>
+<li><p>EXTERNALSRC: 源码目录，编译会对这个目录做校验决定是否重新编译</p>
+<ul>
+<li><p>如果源码不全在 EXTERNALSRC 目录内，我们需要追加文件或目录做校验，追加任务的 <code>file-checksums</code> 标记，否则源码修改后没有重新编译</p>
+</li>
+<li><p>用户可以继承类 <code>extrasrc.bbclass</code> 来做追加，可设置的变量</p>
+<ul>
+<li>EXTRASRC_CONFIGURE: 追加做 do_configure 任务校验的文件或目录</li>
+<li>EXTRASRC_COMPILE: 追加做 do_compile 任务校验的文件或目录</li>
+<li>EXTRASRC_INSTALL: 追加做 do_install 任务校验的文件或目录</li>
+</ul>
+  <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">python () &#123;</span><br><span class="line">    tasks = [<span class="string">&#x27;configure&#x27;</span>, <span class="string">&#x27;compile&#x27;</span>, <span class="string">&#x27;install&#x27;</span>]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> task <span class="keyword">in</span> tasks:</span><br><span class="line">        task_name = <span class="string">&#x27;do_%s&#x27;</span> % (task)</span><br><span class="line">        src_name = <span class="string">&#x27;EXTRASRC_%s&#x27;</span> % (task.upper())</span><br><span class="line">        src_str = d.getVar(src_name)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> src_str:</span><br><span class="line">            srcs = src_str.split()</span><br><span class="line">            <span class="keyword">for</span> src <span class="keyword">in</span> srcs:</span><br><span class="line">                <span class="keyword">if</span> os.path.exists(src):</span><br><span class="line">                    <span class="keyword">if</span> os.path.isdir(src):</span><br><span class="line">                        d.appendVarFlag(task_name, <span class="string">&#x27;file-checksums&#x27;</span>, <span class="string">&#x27; %s/*:True&#x27;</span> % (src))</span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        d.appendVarFlag(task_name, <span class="string">&#x27;file-checksums&#x27;</span>, <span class="string">&#x27; %s:True&#x27;</span> % (src))</span><br><span class="line">                    <span class="comment">#bb.warn(&#x27;%s is appended in %s of %s\n&#x27; % (d.getVarFlag(task_name, &#x27;file-checksums&#x27;), task_name, d.getVar(&#x27;PN&#x27;)))</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    bb.warn(<span class="string">&#x27;%s is not existed in %s of %s\n&#x27;</span> % (src, task_name, d.getVar(<span class="string">&#x27;PN&#x27;</span>)))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<br>
+
+<ul>
+<li><p>EXTERNALSRC_BUILD: 运行 make 命令的目录，可以和 EXTERNALSRC 不同</p>
+<br>
+</li>
+<li><p>本地源码的配方附加文件模板</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">inherit externalsrc</span><br><span class="line">EXTERNALSRC = &quot;$&#123;ENV_TOP_DIR&#125;/&lt;package_src&gt;&quot;</span><br><span class="line">EXTERNALSRC_BUILD = &quot;$&#123;ENV_TOP_DIR&#125;/&lt;package_src&gt;&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Yocto-编译打补丁"><a href="#Yocto-编译打补丁" class="headerlink" title="Yocto 编译打补丁"></a>Yocto 编译打补丁</h2><h3 id="Yocto-官方打补丁"><a href="#Yocto-官方打补丁" class="headerlink" title="Yocto 官方打补丁"></a>Yocto 官方打补丁</h3><ul>
+<li><p>方法</p>
+<ul>
+<li>配方文件的当前目录新建名为 <code>配方名</code> 或 <code>files</code> 的文件夹，补丁放在此文件夹内<ul>
+<li>注：查找补丁文件的文件夹不止上面这些，但我们一般使用名为 <code>配方名</code> 的文件夹</li>
+</ul>
+</li>
+<li>配方中加上补丁文件名声明，无需文件夹路径 <code>SRC_URI += &quot;file://0001-xxx.patch&quot;</code></li>
+<li>如果配方继承了 <code>externalsrc</code> 类，还要设置变量 <code>RCTREECOVEREDTASKS = &quot;do_unpack do_fetch&quot;</code><ul>
+<li>注：<code>externalsrc</code> 类默认会把 <code>do_patch</code> 任务删除，所以要设置 <code>RCTREECOVEREDTASKS</code><br></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>优点</p>
+<ul>
+<li>实现简单<br></li>
+</ul>
+</li>
+<li><p>缺点</p>
+<ul>
+<li>无法选择补丁是否打上</li>
+<li>打补丁默认只会运行一次，如果其它方法去掉了补丁，重新编译，补丁不会被打上</li>
+<li>会在源码目录生成临时文件夹，污染源码目录，例如生成了 <code>.pc/</code> <code>patches/</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="自定义打补丁-externalpatch-bbclass"><a href="#自定义打补丁-externalpatch-bbclass" class="headerlink" title="自定义打补丁 externalpatch.bbclass"></a>自定义打补丁 externalpatch.bbclass</h3><ul>
+<li><p>方法</p>
+<ul>
+<li>每类补丁建立两个包，打补丁包和去补丁包，配方名格式必须为 <code>xxx-patch-xxx</code> 和 <code>xxx-unpatch-xxx</code></li>
+<li>源码包弱依赖这两个包 <code>EXTRADEPS = &quot;xxx-patch-xxx|xxx-unpatch-xxx&quot;</code> <code>inherit weakdep</code></li>
+<li>建立虚依赖规则文件 <code>#VDEPS(choice) xxx-patch-xxx-choice(xxx-unpatch-xxx xxx-patch-xxx):</code></li>
+<li>补丁包设置变量并继承外部补丁类 <code>inherit externalpatch</code><ul>
+<li><code>externalpatch</code> 类的作用是检查补丁是否打上，从而决定是否打补丁或去补丁强制运行  <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">EXTERNALPATCH_SRC = <span class="string">&quot;带路径的补丁文件名，可以是多个文件或目录&quot;</span></span><br><span class="line">EXTERNALPATCH_DST = <span class="string">&quot;要打补丁的源码目录&quot;</span></span><br><span class="line">EXTERNALPATCH_OPT = <span class="string">&quot;patch 或 unpatch&quot;</span></span><br><span class="line">inherit externalpatch</span><br></pre></td></tr></table></figure>
+<br></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>缺点</p>
+<ul>
+<li>实现稍显复杂</li>
+<li>因为动态修改了配方，补丁选项改变时需要重新编译打&#x2F;去补丁包两次<br></li>
+</ul>
+</li>
+<li><p>优点</p>
+<ul>
+<li>可以选择补丁是否打上</li>
+<li>可以保证打补丁或去补丁正确运行，无论是否在其它地方做了打补丁或去补丁的操作</li>
+<li>源码目录只有补丁的修改，无临时文件或文件夹</li>
+<li>补丁可以放在任意目录</li>
+</ul>
+</li>
+</ul>
+<h2 id="Yocto-编译和普通编译最大不同是什么"><a href="#Yocto-编译和普通编译最大不同是什么" class="headerlink" title="Yocto 编译和普通编译最大不同是什么"></a>Yocto 编译和普通编译最大不同是什么</h2><p>答：普通编译使用的是主机的编译环境；<br>Yocto 编译则每个包都有自已的输出目录 <a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/ref-manual/variables.html#term-WORKDIR">WORKDIR</a> ，在 WORKDIR 自己复制需要的主机工具和依赖文件到自己的工作目录，然后创建一个干净的shell环境执行任务。</p>
+<ul>
+<li><code>$&#123;WORKDIR&#125;/build</code>：仅适用于源代码与编译输出分开的编译输出目录</li>
+<li><code>$&#123;WORKDIR&#125;/recipe-sysroot</code>：依赖的根文件目录</li>
+<li><code>$&#123;WORKDIR&#125;/recipe-sysroot-native</code>：主机工具的根文件目录</li>
+<li><code>$&#123;WORKDIR&#125;/image</code>：安装的根文件目录</li>
+<li><code>$&#123;WORKDIR&#125;/temp</code>：自动生成的日志和脚本的文件目录</li>
+</ul>
+<h2 id="Yocto-怎么导出环境变量"><a href="#Yocto-怎么导出环境变量" class="headerlink" title="Yocto 怎么导出环境变量"></a>Yocto 怎么导出环境变量</h2><p>答：Yocto 是无法使用在shell中导出的环境变量的，Yocto 中的环境变量可以在输出目录的 <code>conf/local.conf</code> 中定义，在recipe文件中通过 <code>export &lt;varname&gt;</code> 一条一条导出。<br>编译时可以从 <code>$&#123;WORKDIR&#125;/temp/run.do_compile</code> 文件知道导出了哪些变量。<br>详情参考 <a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/bitbake/bitbake-user-manual/bitbake-user-manual-metadata.html?highlight=nostamp#exporting-variables-to-the-environment">将变量导出到环境</a></p>
+<h2 id="Yocto-常用命令有哪些"><a href="#Yocto-常用命令有哪些" class="headerlink" title="Yocto 常用命令有哪些"></a>Yocto 常用命令有哪些</h2><p>答：主要命令如下所示</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/bitbake/bitbake-user-manual/bitbake-user-manual-intro.html#the-bitbake-command">bitbake 命令</a><ul>
+<li><code>bitbake packagename</code> 编译 packagename</li>
+<li><code>bitbake -c taskname packagename</code> 执行 packagename 的 taskname 任务</li>
+<li><code>bitbake -e packagename</code> 显示生成的执行脚本，从中可以看到变量和函数的定义</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/dev-manual/common-tasks.html#locate-or-automatically-create-a-base-recipe">recipetool 命令</a><ul>
+<li><code>recipetool create -o xxx.bb src_path</code> 根据源码生成一个模板</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/bsp-guide/bsp.html?highlight=bitbake+layers#creating-a-new-bsp-layer-using-the-bitbake-layers-script">bitbake-layers 命令</a><ul>
+<li><code>bitbake-layers create-layer xxx &amp;&amp; mv xxx meta-xxx</code> 新建一个层</li>
+<li><code>bitbake-layers add-layer meta-xxx</code> 添加一个层到当前配置</li>
+</ul>
+</li>
+</ul>
+<h2 id="Yocto-需要注意哪些配置文件"><a href="#Yocto-需要注意哪些配置文件" class="headerlink" title="Yocto 需要注意哪些配置文件"></a>Yocto 需要注意哪些配置文件</h2><p>答：主要配置文件如下所示</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/bitbake/2.0/bitbake-user-manual/bitbake-user-manual-ref-variables.html#term-TOPDIR">TOPDIR 目录</a> : 输出顶层目录</li>
+<li><a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/ref-manual/structure.html?highlight=bitbake+conf#meta-conf">poky&#x2F;meta&#x2F;conf&#x2F;bitbake.conf</a> : 默认配置，大多数变量词汇在此定义</li>
+<li><a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/ref-manual/structure.html?highlight=local+conf#build-conf-local-conf">${TOPDIR}&#x2F;conf&#x2F;local.conf</a> : 本地配置，可以覆盖默认配置和定义自定义的环境变量</li>
+<li><a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/ref-manual/structure.html?highlight=local+conf#build-conf-bblayers-conf">${TOPDIR}&#x2F;conf&#x2F;bblayers.conf</a> : 配置使用的层</li>
+<li><a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/dev-manual/common-tasks.html?highlight=layer+conf#creating-your-own-layer">meta-xxx&#x2F;conf&#x2F;layer.conf 配置</a> : 层配置，可以看到层下的配方文件如何找到</li>
+<li><a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/bsp-guide/bsp.html?highlight=machine+conf#hardware-configuration-options">meta-xxx&#x2F;conf&#x2F;machine&#x2F;xxx.conf 配置</a> : 机器配置，有机器配置的层是BSP层， <code>$&#123;TOPDIR&#125;/conf/local.conf</code> 里面的 <code>MACHINE</code> 设置的值的机器配置文件 <code>值.conf</code> 必须存在</li>
+</ul>
+<h2 id="Yocto-怎么使用变量"><a href="#Yocto-怎么使用变量" class="headerlink" title="Yocto 怎么使用变量"></a>Yocto 怎么使用变量</h2><p>答：详细信息参考 <a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/bitbake/bitbake-user-manual/bitbake-user-manual-metadata.html#basic-syntax">基本语法</a> 和 <a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/bitbake/bitbake-user-manual/bitbake-user-manual-metadata.html#conditional-syntax-overrides">条件语法</a> ，如下总结：</p>
+<ul>
+<li>获取变量的值必须使用大括号 <code>$&#123;var&#125;</code></li>
+<li>赋给变量的值可以用单引号也可以用双引号，单引号和双引号作用一样，不会抑制变量扩展(和shell不一样)</li>
+<li>定义或修改变量的操作符有:<ul>
+<li>赋值 <code>=</code> <code>:=</code> <code>?=</code> <code>??=</code><ul>
+<li>值中有变量时， <code>=</code> <code>?=</code> <code>??=</code> 值中的变量是最后扩展(变量的最终值)，<code>:=</code> 值中的变量是立即扩展(当前位置的变量值)</li>
+<li><code>?=</code> 设置默认值(在解析到当前语句时，当前变量未定义时才保留该值)</li>
+<li><code>??=</code> 设置弱默认值(在解析过程结束后再解析该语句，此时变量未定义时才保留该值，多个 <code>??=</code> 存在时保留最后一个值)</li>
+</ul>
+</li>
+<li>追加 <code>+=</code> <code>=+</code> <code>.=</code> <code>=.</code> <code>:append</code> <code>:prepend</code>  删除 <code>:remove</code><ul>
+<li><code>+=</code>  <code>.=</code>  <code>:append</code> 是后置追加(新值放在原值的后面)； <code>=+</code> <code>=.</code> <code>:prepend</code> 是前置追加(新值放在原值的前面)</li>
+<li><code>+=</code> <code>=+</code> 会在新值和原值之间自动加上空格；<code>.=</code> <code>=.</code> <code>:append</code> <code>:prepend</code> 新值和原值之间不会加上空格，需要手动增加</li>
+<li><code>+=</code> <code>=+</code> <code>.=</code> <code>=.</code> 是立即解析(在解析到当前语句时立即追加)，<code>:append</code> <code>:prepend</code> 是最后解析(在解析过程结束后再解析该语句时追加)</li>
+<li><code>:remove</code> 是删除所有已有值(空格隔开多个值)中和设定值相同的值</li>
+</ul>
+</li>
+<li>条件 <code>OVERRIDES</code><ul>
+<li>条件声明使用 <code>OVERRIDES</code> 关键字，条件名只能使用小写字符、数字和短划线，多个条件使用冒号隔开<ul>
+<li><code>OVERRIDES = &quot;cond1:cond2&quot;</code></li>
+<li><code>OVERRIDES:append = &quot;:cond3&quot;</code></li>
+</ul>
+</li>
+<li>当条件定义时才定义或修改对应的变量  <code>var:cond1:append = &quot; xxx&quot;</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>使用 <code>unset</code> 取消设置变量</li>
+<li>可以使用中括号 <code>var[flag_name]</code> 定义变量的标志<ul>
+<li>理解为创建一个新变量，类似把变量当作字典的概念</li>
+<li>task变量有一些 <a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/bitbake/bitbake-user-manual/bitbake-user-manual-metadata.html#variable-flags">公有的flag</a></li>
+<li>定义或修改变量的操作符和取消设置 <code>unset</code> 都可以用在变量的标志中</li>
+</ul>
+</li>
+</ul>
+<h2 id="Yocto-怎么包含共享功能的文件"><a href="#Yocto-怎么包含共享功能的文件" class="headerlink" title="Yocto 怎么包含共享功能的文件"></a>Yocto 怎么包含共享功能的文件</h2><p>答：包含共享功能总共有 <a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/bitbake/bitbake-user-manual/bitbake-user-manual-metadata.html#sharing-functionality">4种方法</a> ：</p>
+<ul>
+<li>继承类 : <code>inherit &lt;class_name&gt;</code> 和 <code>INHERIT += &lt;class_name&gt;</code><ul>
+<li>继承的文件只能是类 <code>*.bbclass</code></li>
+<li>inherit指令只能用在配方和类文件中 <code>*.bb</code> &#x2F; <code>*.bbappend</code> &#x2F; <code>*.bbclass</code> ，INHERIT指令只能用在配置文件中 <code>*.conf</code></li>
+<li><code>&lt;class_name&gt;.bbclass</code> 在输出目录的 <code>conf/bblayers.conf</code> 的 <a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/ref-manual/variables.html?highlight=bblayers#term-BBLAYERS">BBLAYERS</a> 变量上定义的所有 meta-xxx 目录的 classes 子目录找到，而不仅仅是当前的层目录</li>
+</ul>
+</li>
+<li>包含文件:  <code>include &lt;file_path&gt;</code> 和 <code>require &lt;file_path&gt;</code><ul>
+<li>包含的文件可以是任意类型的文件，但是我们一般命名为 <code>*.inc</code></li>
+<li>include指令和require指令可以用在任意类型的文件中</li>
+<li><strong>include指令包含的文件不存在时不会报错，而require指令会报错</strong></li>
+<li><code>&lt;file_path&gt;</code> 如果是相对路径，它的基准是输出目录的 <code>conf/bblayers.conf</code> 的 BBLAYERS 变量上定义的所有 meta-xxx 目录，从中找到第一个匹配的文件</li>
+<li>配方文件 <code>*.bb</code> 可以使用 <a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/ref-manual/variables.html?highlight=thisdir#term-THISDIR">THISDIR</a> 表示配方文件的所在目录，例如包含usertask.inc: <code>include $&#123;THISDIR&#125;/usertask.inc</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="Yocto-如何在NFS下编译"><a href="#Yocto-如何在NFS下编译" class="headerlink" title="Yocto 如何在NFS下编译"></a>Yocto 如何在NFS下编译</h2><p>答：Yocto 默认是不支持在NFS下编译的，因为编译速度较慢且可能存在权限问题，请参考 <a target="_blank" rel="noopener" href="https://bugzilla.yoctoproject.org/show_bug.cgi?id=5442#c8">官方issue</a> ,<br>我们可以使用如下方法禁用poky官方工程的NFS检查使得编译成功，但无法保证不出现其它问题：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">diff --git a/meta/classes/sanity.bbclass b/meta/classes/sanity.bbclass</span><br><span class="line">index b1fac107d5..afbafe2382 100644</span><br><span class="line">--- a/meta/classes/sanity.bbclass</span><br><span class="line">+++ b/meta/classes/sanity.bbclass</span><br><span class="line">@@ -722,7 +722,7 @@ def check_sanity_version_change(status, d):</span><br><span class="line">     status.addresult(check_path_length(tmpdir, &quot;TMPDIR&quot;, 410))</span><br><span class="line"></span><br><span class="line">     # Check that TMPDIR isn&#x27;t located on nfs</span><br><span class="line">-    status.addresult(check_not_nfs(tmpdir, &quot;TMPDIR&quot;))</span><br><span class="line">+    #status.addresult(check_not_nfs(tmpdir, &quot;TMPDIR&quot;))</span><br><span class="line"></span><br><span class="line">     # Check for case-insensitive file systems (such as Linux in Docker on</span><br><span class="line">     # macOS with default HFS+ file system)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Yocto-的目录结构在哪里定义"><a href="#Yocto-的目录结构在哪里定义" class="headerlink" title="Yocto 的目录结构在哪里定义"></a>Yocto 的目录结构在哪里定义</h2><p>答：查看官方文档 <a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/ref-manual/structure.html">源目录结构</a> 了解目录的作用；<br>查看 poky 的 <code>meta/conf/bitbake.conf</code> 源码了解目录变量的详细定义</p>
+<h2 id="downloads-和-sstate-cache-存储了什么"><a href="#downloads-和-sstate-cache-存储了什么" class="headerlink" title="downloads 和 sstate-cache 存储了什么"></a>downloads 和 sstate-cache 存储了什么</h2><p>答：downloads 存储了源码， sstate-cache 存储了编译生成的文件，他们可以分别使用 <a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/ref-manual/variables.html?highlight=dl_dir#term-DL_DIR">DL_DIR</a> 和 <a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/ref-manual/variables.html#term-SSTATE_DIR">SSTATE_DIR</a> 指定保存目录，<br>如下所示，把 downloads 和 sstate-cache 保存在某个公共位置下，多个编译可以共享一份资源</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DL_DIR = <span class="string">&quot;<span class="variable">$&#123;TOPDIR&#125;</span>/../downloads&quot;</span></span><br><span class="line">SSTATE_DIR = <span class="string">&quot;<span class="variable">$&#123;TOPDIR&#125;</span>/../sstate-cache&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="如何在本地搭建镜像服务器加速构建"><a href="#如何在本地搭建镜像服务器加速构建" class="headerlink" title="如何在本地搭建镜像服务器加速构建"></a>如何在本地搭建镜像服务器加速构建</h2><p>答：将第一次构建生成的 downloads 和 sstate-cache 复制到一个特定的目录，例如 mirror，<br>在 mirror 目录运行 http 服务器，例如 <code>python -m http.server 8080</code>，<br>然后在输出目录的 <code>conf/local.conf</code> 加上设置，例如</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SSTATE_MIRRORS = <span class="string">&quot;file://.* http://127.0.0.1:8080/sstate-cache/PATH;downloadfilename=PATH&quot;</span></span><br><span class="line">SOURCE_MIRROR_URL = <span class="string">&quot;http://127.0.0.1:8080/downloads&quot;</span></span><br><span class="line">INHERIT += <span class="string">&quot;own-mirrors&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Yocto-获取源码和不重新编译的规则"><a href="#Yocto-获取源码和不重新编译的规则" class="headerlink" title="Yocto 获取源码和不重新编译的规则"></a>Yocto 获取源码和不重新编译的规则</h2><p>答：<br>Yocto不重新编译的判断规则是(参考 <a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/overview-manual/concepts.html#shared-state-cache">共享状态缓存</a> )：</p>
+<ol>
+<li>本地的 SSTATE_DIR 是否存在编译好的包且时间戳相同，如果是，<a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/bitbake/bitbake-user-manual/bitbake-user-manual-execution.html#setscene">不用重新编译</a>；否则下一条</li>
+<li>网络的 SSTATE_MIRRORS 是否存在编译好的包且时间戳相同，如果是，不用重新编译，直接将网络上的编译好的包复制到本地的 SSTATE_DIR；否则下一条</li>
+<li>获取源码编译并将编译好的包复制到本地的 SSTATE_DIR</li>
+</ol>
+<p>Yocto获取源码的规则是(参考 <a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/bitbake/2.0/bitbake-user-manual/bitbake-user-manual-fetching.html">文件下载</a> )：</p>
+<ol>
+<li>本地的 DL_DIR 是否存在下载好的源码且hash值相同，如果是，直接从本地解压；否则下一条</li>
+<li>网络的 SOURCE_MIRROR_URL 是否存在下载好的源码且hash值相同，如果是，下载到本地 DL_DIR 再解压；否则下一条</li>
+<li>从配方文件指定的 SRC_URI 链接下载源码，如果下载失败下一条</li>
+<li>从Yocto官方镜像下载源码</li>
+</ol>
+<h2 id="出现官方自带开源包编译错误如何处理"><a href="#出现官方自带开源包编译错误如何处理" class="headerlink" title="出现官方自带开源包编译错误如何处理"></a>出现官方自带开源包编译错误如何处理</h2><p>答：开源包的编译是Yocto官方配方，个人猜测是缓存导致了此错误(系统内存不足也会导致编译出错)，运行清理一般可以解决此问题，例如出现如下错误：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ERROR: Task (.../poky/meta/recipes-connectivity/openssl/openssl_3.0.4.bb:do_package_write_rpm) failed with <span class="built_in">exit</span> code <span class="string">&#x27;1&#x27;</span></span><br><span class="line">ERROR: Task (.../poky/meta/recipes-devtools/gcc/gcc_11.3.bb:do_compile) failed with <span class="built_in">exit</span> code <span class="string">&#x27;1&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>解决方法</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bitbake -c clean openssl &amp;&amp; bitbake openssl	<span class="comment"># 取自 openssl_3.0.4.bb 的 openssl</span></span><br><span class="line">bitbake -c clean gcc &amp;&amp; bitbake gcc	<span class="comment"># 取自 gcc_11.3.bb 的 gcc</span></span><br></pre></td></tr></table></figure>
+
+<p>也可能是内存不足，通常出现在编译大型软件，例如 gcc &#x2F; rust 等的时候，请加大内存(8G内存不够的)，或者单独编这个包</p>
+<h2 id="为什么外部linux模块的配方文件名以-kernel-module-开头"><a href="#为什么外部linux模块的配方文件名以-kernel-module-开头" class="headerlink" title="为什么外部linux模块的配方文件名以 kernel-module- 开头"></a>为什么外部linux模块的配方文件名以 <code>kernel-module-</code> 开头</h2><p>答：查看 poky 的 <code>meta/classes/module.bbclass</code> 源码：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">python __anonymous () &#123;</span><br><span class="line">depends = d.getVar(<span class="string">&#x27;DEPENDS&#x27;</span>)</span><br><span class="line">extra_symbols = []</span><br><span class="line"><span class="keyword">for</span> dep <span class="keyword">in</span> depends.split():</span><br><span class="line">	<span class="keyword">if</span> dep.startswith(<span class="string">&quot;kernel-module-&quot;</span>):</span><br><span class="line">		extra_symbols.append(<span class="string">&quot;$&#123;STAGING_INCDIR&#125;/&quot;</span> + dep + <span class="string">&quot;/Module.symvers&quot;</span>)</span><br><span class="line">d.setVar(<span class="string">&#x27;KBUILD_EXTRA_SYMBOLS&#x27;</span>, <span class="string">&quot; &quot;</span>.join(extra_symbols))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>module类自动将依赖模块的符号导出文件 Module.symvers 加入到了 <a target="_blank" rel="noopener" href="https://www.kernel.org/doc/html/latest/kbuild/kbuild.html?highlight=kbuild_extra_symbols">KBUILD_EXTRA_SYMBOLS</a> 变量。<br>Module.symvers 含有 EXPORT_SYMBOL(func) 导出的符号列表等，如果没有指定依赖包的这个文件，编译会失败。<br>也可以设置变量 <a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/ref-manual/variables.html#term-PROVIDES">PROVIDES</a> 为配方设置别名，此时配方文件名不命名为 <code>kernel-module-</code> 开头也行<br>inc.mod.mk 模板也会自动加上 Module.symvers ，所以配方文件名不命名为 <code>kernel-module-</code> 开头也行。</p>
+<h2 id="配方中如何支持menuconfig"><a href="#配方中如何支持menuconfig" class="headerlink" title="配方中如何支持menuconfig"></a>配方中如何支持menuconfig</h2><p>答：直接加上一个自定义任务运行 <code>oe_runmake menuconfig</code> 是没有效果的。</p>
+<p>查看poky工程的 <code>meta/classes/cml1.bbclass</code> 的源码有个 do_menuconfig 的任务，核心语句如下：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">KCONFIG_CONFIG_COMMAND ??= <span class="string">&quot;menuconfig&quot;</span></span><br><span class="line">KCONFIG_CONFIG_ROOTDIR ??= <span class="string">&quot;$&#123;B&#125;&quot;</span></span><br><span class="line">python do_menuconfig() &#123;</span><br><span class="line">    ...</span><br><span class="line">    oe_terminal(<span class="string">&quot;sh -c \&quot;make %s; if [ \\$? -ne 0 ]; then echo &#x27;Command failed.&#x27;; printf &#x27;Press any key to continue... &#x27;; read r; fi\&quot;&quot;</span> % d.getVar(<span class="string">&#x27;KCONFIG_CONFIG_COMMAND&#x27;</span>),</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>所以我们需要继承cml1类 <code>inherit cml1</code> 来加上 menuconfig 任务，如果我们的 Makefile 不是默认名称，我们还需要修改 <code>KCONFIG_CONFIG_COMMAND</code> 变量，例如 <code>KCONFIG_CONFIG_COMMAND = &quot;-f wrapper.mk menuconfig&quot;</code>。</p>
+<p>但是cml1类不支持 <code>.config</code> 文件放在和运行编译的工作目录的不同的目录，如果 <code>.config</code> 文件和运行编译的工作目录不同，包不会使用新的参数重新编译，此种情况我们可以继承自定义的类 <code>inherit kconfig</code></p>
+<h2 id="如何禁止编译在源码创建-oe-workdir-和-oe-logs-符号链接"><a href="#如何禁止编译在源码创建-oe-workdir-和-oe-logs-符号链接" class="headerlink" title="如何禁止编译在源码创建 oe-workdir 和 oe-logs 符号链接"></a>如何禁止编译在源码创建 oe-workdir 和 oe-logs 符号链接</h2><p>答：查看Poky工程的 meta&#x2F;classes&#x2F;externalsrc.bbclass 的源码有个 <code>EXTERNALSRC_SYMLINKS ?= &quot;oe-workdir:$&#123;WORKDIR&#125; oe-logs:$&#123;T&#125;&quot;</code> 的变量，在输出目录的 <code>conf/local.conf</code> 将此变量置空 <code>EXTERNALSRC_SYMLINKS ?= &quot;&quot;</code> 即可禁止创建。</p>
+<ul>
+<li>oe-workdir: 指向包输出的根目录 <code>$&#123;WORKDIR&#125;</code></li>
+<li>oe-logs: 指向包输出的日志和脚本目录 <code>$&#123;WORKDIR&#125;/temp</code></li>
+</ul>
+<h2 id="Please-use-a-umask-which-allows-a-rx-and-u-rwx-怎么解决"><a href="#Please-use-a-umask-which-allows-a-rx-and-u-rwx-怎么解决" class="headerlink" title="Please use a umask which allows a+rx and u+rwx 怎么解决"></a><code>Please use a umask which allows a+rx and u+rwx</code> 怎么解决</h2><p>答：Yocto 编译要求创建的文件夹的权限至少是 755，创建的文件的权限至少是 644，如果出现的如下错误，请检查你是 shell 环境配置的 umask 值，可以运行 <code>umask 022</code> 解决此问题<br>对目录来说，拥有的最大默认权限是 777，对文件来说，可拥有的最大默认权限是 666，文件和目录的初始权限，通过计算得到：<code>初始权限 = 最大默认权限 - umask权限</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ make</span><br><span class="line">Clean done!</span><br><span class="line">/usr/lib/python3/dist-packages/html5lib/_trie/_base.py:3: DeprecationWarning: Using or importing the ABCs from &#x27;collections&#x27; instead of from &#x27;collections.abc&#x27; is deprecated since Python 3.3, and in 3.10 it will stop working</span><br><span class="line">  from collections import Mapping</span><br><span class="line">WARNING: You are using a local hash equivalence server but have configured an sstate mirror. This will likely mean no sstate will match from the mirror. You may wish to disable the hash equivalence use (BB_HASHSERVE), or use a hash equivalence server alongside the sstate mirror.</span><br><span class="line">ERROR:  OE-core&#x27;s config sanity checker detected a potential misconfiguration.</span><br><span class="line">    Either fix the cause of this error or at your own risk disable the checker (see sanity.conf).</span><br><span class="line">    Following is the list of potential problems / advisories:</span><br><span class="line"></span><br><span class="line">    Please use a umask which allows a+rx and u+rwx</span><br></pre></td></tr></table></figure>
+
+<h2 id="aarch64-poky-linux-ld-bfd-cannot-find-libgcc-a-No-such-file-or-directory-怎么解决"><a href="#aarch64-poky-linux-ld-bfd-cannot-find-libgcc-a-No-such-file-or-directory-怎么解决" class="headerlink" title="aarch64-poky-linux-ld.bfd: cannot find libgcc.a: No such file or directory 怎么解决"></a><code>aarch64-poky-linux-ld.bfd: cannot find libgcc.a: No such file or directory</code> 怎么解决</h2><p>答：说明用户没有使用 Yocto 导出的交叉编译编译变量等 <code>CC</code> <code>LD</code> …，请明确下面规则:</p>
+<ul>
+<li><p>Yocto 编译相当于一个容器或虚拟机，它无法直接获取本地主机的命令和环境变量</p>
+<ul>
+<li>Yocto 自动依赖了一些基本包，例如 gcc &#x2F; ls &#x2F; cp &#x2F; sed &#x2F; grep &#x2F; awk 等，这些不需要填写依赖，但还有一些主机包需要自己在配方文件中声明 DEPENDS +&#x3D; “xxxx-native”，例如包里面运行 bash 脚本需要设置 DEPENDS +&#x3D; “bash-native”</li>
+<li>Yocto 在输出目录的 conf&#x2F;local.conf 自定义的环境变量，在配方文件中导出，cbuild的做法是配方继承 cbuild.bbclass 里面导出的环境变量</li>
+</ul>
+</li>
+<li><p>Yocto 编译和普通的交叉编译完全不一样</p>
+<ul>
+<li>普通编译的交叉编译器会编译交叉编译器时固化了 sysroot arch 等变量，而 Yocto 的交叉编译器没有这些变量，它在导出的 CC 、CFLAGS 变量里面设置，这意味着你使用自己定义的 CC 而不是 Yocto 导出的 CC ，你就要自己关心和设置各种导出的变量，例如不设置 <code>--sysroot</code> 可能 C 标准库和头文件都找不到</li>
+<li>Yocto 编译每个包都有自己的工作目录，称为 WORKDIR <a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/ref-manual/structure.html#build-tmp-work-tunearch-recipename-version%EF%BC%8C%E4%BB%96%E7%9A%84%E7%BC%96%E8%AF%91%E8%BE%93%E5%87%BA%E3%80%81%E5%AE%89%E8%A3%85%E3%80%81%E4%BE%9D%E8%B5%96%E7%AD%89%E7%9B%AE%E5%BD%95%E9%83%BD%E6%9C%89%E5%9B%BA%E5%AE%9A%E7%9A%84%E5%AE%9A%E4%B9%89%EF%BC%8C%E8%80%8C%E4%B8%8D%E6%98%AF%E6%83%B3%E6%80%8E%E4%B9%88%E7%94%A8%E5%B0%B1%E6%80%8E%E4%B9%88%E7%94%A8%EF%BC%8Cbitbake">https://docs.yoctoproject.org/ref-manual/structure.html#build-tmp-work-tunearch-recipename-version，他的编译输出、安装、依赖等目录都有固定的定义，而不是想怎么用就怎么用，bitbake</a> 解释器会检查各种情况看符不符合他的规则，不符合规则他也就只能拒绝执行，也没办法执行。例如每个包的依赖都是在各自包的工作目录下，由 bitbake 解释器为每个包根据依赖关系准备好，目录都不对就无法准备</li>
+<li>普通编译一般每个包只有配置、编译、安装三个任务，Yocto 编译有远远比这多的任务，主要的任务有 准备编译环境 、下载、 解包、 补丁 、配置、编译、安装、打包、部属等</li>
+<li>某些子目录的定义要符合linux标准，而不是随便定义，一般是符合 GNUInstallDirs 标准，可以查看下面的链接，都是符合标准定义的<ul>
+<li>GNUInstallDirs&#x2F;Autotools: <a target="_blank" rel="noopener" href="https://www.gnu.org/prep/standards/html_node/Directory-Variables.html">https://www.gnu.org/prep/standards/html_node/Directory-Variables.html</a></li>
+<li>CMake: <a target="_blank" rel="noopener" href="https://cmake.org/cmake/help/latest/module/GNUInstallDirs.html">https://cmake.org/cmake/help/latest/module/GNUInstallDirs.html</a></li>
+<li>Meson: <a target="_blank" rel="noopener" href="https://mesonbuild.com/Builtin-options.html#directories">https://mesonbuild.com/Builtin-options.html#directories</a></li>
+<li>Yocto: <a target="_blank" rel="noopener" href="https://git.yoctoproject.org/poky/tree/meta/conf/bitbake.conf">https://git.yoctoproject.org/poky/tree/meta/conf/bitbake.conf</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="QA-Issue-ldflags-怎么解决"><a href="#QA-Issue-ldflags-怎么解决" class="headerlink" title="QA Issue [ldflags] 怎么解决"></a><code>QA Issue [ldflags]</code> 怎么解决</h2><p>答：该错误的打印是 <code>File &#39;&lt;file&gt;&#39; in package &#39;&lt;package&gt;&#39; doesn&#39;t have GNU_HASH (didn&#39;t pass LDFLAGS?) [ldflags]</code>，<br>错误原因是LDFLAGS默认传了链接参数 <code>-Wl,--hash-style=gnu</code>，而编译的库没有使用这个链接参数，解决方法有3个：</p>
+<ul>
+<li>a. 编译动态库时加上链接参数链接参数 <code>-Wl,--hash-style=gnu</code></li>
+<li>b. 修改默认链接参数为sysv，在输出目录的 <code>conf/local.conf</code> 加上 <code>LINKER_HASH_STYLE = &quot;sysv&quot;</code></li>
+<li>c. 忽略错误，在recipe文件加上 <code>INSANE_SKIP:$&#123;PN&#125; += &quot;ldflags&quot;</code></li>
+</ul>
+<p>关于 gnu 和 sysv 的区别请参考 <a target="_blank" rel="noopener" href="https://answerywj.com/2020/05/14/ld-hash-style/">ld-hash-style</a></p>
+<h2 id="QA-Issue-dev-so-怎么解决"><a href="#QA-Issue-dev-so-怎么解决" class="headerlink" title="QA Issue [dev-so] 怎么解决"></a><code>QA Issue [dev-so]</code> 怎么解决</h2><p>答：该错误的打印是 <code>non -dev/-dbg/nativesdk- package contains symlink .so: &lt;packagename&gt; path &#39;&lt;path&gt;&#39; [dev-so]</code>，<br>错误原因是发布包打包了符号链接，具体参考 <a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/dev-manual/common-tasks.html#working-with-pre-built-libraries">打包规则</a> ，解决方法有两个：</p>
+<ul>
+<li>a. 忽略错误，在recipe文件加上 <code>INSANE_SKIP:$&#123;PN&#125; += &quot;dev-so&quot;</code>  (目前使用方法)</li>
+<li>b. 更细致的打包，如下所示：</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">FILES:<span class="variable">$&#123;PN&#125;</span>-dev = <span class="string">&quot;<span class="variable">$&#123;includedir&#125;</span> <span class="variable">$&#123;libdir&#125;</span>/lib*.so&quot;</span></span><br><span class="line">FILES:<span class="variable">$&#123;PN&#125;</span> = <span class="string">&quot;<span class="variable">$&#123;libdir&#125;</span>/lib*.so.*.*.*&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="QA-Issue-file-rdeps-怎么解决"><a href="#QA-Issue-file-rdeps-怎么解决" class="headerlink" title="QA Issue [file-rdeps] 怎么解决"></a><code>QA Issue [file-rdeps]</code> 怎么解决</h2><p>答：该错误的打印是 <code>&lt;packagename&gt; requires &lt;files&gt;, but no providers in its RDEPENDS [file-rdeps]</code>，<br>如果编译时LDFLAGS指定了 <code>-lsonamea</code>，必须在配方文件加上 <code>RDEPENDS:$&#123;PN&#125; += &quot;packagename1 packagename2&quot;</code>;<br>如果还是报此错误，并且依赖的动态库是带版本的，那么编译依赖的动态库时需要加上链接参数 <code>-Wl,-soname=libxxx.so</code></p>
+<p>关于链接参数的说明，请查看 <a target="_blank" rel="noopener" href="https://www.cnblogs.com/wangshaowei/p/11285332.html">linux下动态库中的soname</a></p>
+<h2 id="QA-Issue-already-stripped-怎么解决"><a href="#QA-Issue-already-stripped-怎么解决" class="headerlink" title="QA Issue [already-stripped] 怎么解决"></a><code>QA Issue [already-stripped]</code> 怎么解决</h2><p>答：该错误的打印是 <code>File &#39;&lt;file&gt;&#39; from &lt;recipename&gt; was already stripped, this will prevent future debugging! [already-stripped]</code>，<br>错误原因是安装的可执行文件或动态库使用了 strip 命令删除了调试信息，所以我们安装的文件不应该先运行 <code>$(STRIP) 文件</code>，<br>如果我们无法重新构建库，也可以通过忽略错误解决此问题，在recipe文件加上 <code>INSANE_SKIP:$&#123;PN&#125; += &quot;already-stripped&quot;</code></p>
+<h2 id="Error-Unable-to-find-a-match-lt-packagename-gt-怎么解决"><a href="#Error-Unable-to-find-a-match-lt-packagename-gt-怎么解决" class="headerlink" title="Error: Unable to find a match: &lt;packagename&gt; 怎么解决"></a><code>Error: Unable to find a match: &lt;packagename&gt;</code> 怎么解决</h2><p>答：该错误的打印出现在do_rootfs时，错误原因是某个包没有任何输出，或输出只有头文件 或&#x2F;和 静态库文件，<br>解决方法有两个</p>
+<ul>
+<li>a. 忽略错误，在recipe文件加上 <code>ALLOW_EMPTY:$&#123;PN&#125; = &quot;1&quot;</code> (目前使用方法)</li>
+<li>b. 不要将此包加入到do_rootfs变量 <code>IMAGE_INSTALL:append</code> ，修改 <code>build/bin/yocto/inc-yocto-build.mk</code> 的 IGNORES_RECIPES 变量</li>
+</ul>
+<h2 id="Yocto-官方明明提供了某个包，为什么-bitbake-这个包还是报找不到这个包"><a href="#Yocto-官方明明提供了某个包，为什么-bitbake-这个包还是报找不到这个包" class="headerlink" title="Yocto 官方明明提供了某个包，为什么 bitbake 这个包还是报找不到这个包"></a>Yocto 官方明明提供了某个包，为什么 bitbake 这个包还是报找不到这个包</h2><p>答：有多种原因，如下我遇到的几种：</p>
+<ul>
+<li>配方设置的打包规则没有加上配方名的打包规则，见变量 <a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/ref-manual/variables.html#term-PACKAGES">PACKAGES</a> 说明，例如 <code>glibc-locale</code></li>
+<li>配方的法律声明没有接受，例如 <code>ffmpeg</code>，需要在 <code>local.conf</code> 文件加上 <code>LICENSE_FLAGS_ACCEPTED = &quot;commercial&quot;</code></li>
+<li>配方限制了本包适配的 HOST &#x2F; MACHINE 等，见变量 <a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/ref-manual/variables.html#term-COMPATIBLE_HOST">COMPATIBLE_HOST</a> <a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/ref-manual/variables.html#term-COMPATIBLE_MACHINE">COMPATIBLE_MACHINE</a>，例如 <code>x265</code></li>
+</ul>
+<h2 id="Error-Transaction-test-error-怎么解决"><a href="#Error-Transaction-test-error-怎么解决" class="headerlink" title="Error: Transaction test error: 怎么解决"></a><code>Error: Transaction test error:</code> 怎么解决</h2><p>答：该错误的打印出现在do_rootfs时，打印信息 <code>&quot;xxx do_rootfs: Could not invoke dnf. Command...&quot;</code>， 然后一连串的包列表，然后 <code>&quot;Error: Transaction test error: file xxx conflicts between attempted installs of xxx and xxx&quot;</code>。<br>错误原因是某个包安装的文件和其它包安装的文件路径名相同，此时只能改变其中一个包安装的文件。</p>
+<p>有时候我们使用自己的配方编译开源包，Yocto 也有对应的默认配方，此时do_rootfs的时候也可能报错。<br>例如如果我们使用了自己的配方编译zlib开源库，do_rootfs就报了下面错误</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Error:</span><br><span class="line"> Problem: package libkmod2-29-r0.cortexa53 requires libz1 &gt;= 1.2.11, but none of the providers can be installed</span><br><span class="line">  - package systemd-1:250.5-r0.cortexa53 requires libkmod.so.2()(64bit), but none of the providers can be installed</span><br><span class="line">  - package systemd-1:250.5-r0.cortexa53 requires libkmod.so.2(LIBKMOD_5)(64bit), but none of the providers can be installed</span><br><span class="line">  - package systemd-1:250.5-r0.cortexa53 requires libkmod2 &gt;= 29, but none of the providers can be installed</span><br><span class="line">  - cannot install both libz1-1.2.11-r0.cortexa53 and libz1-1.0-r0.cortexa53</span><br><span class="line">  - package packagegroup-core-boot-1.0-r17.v5 requires systemd, but none of the providers can be installed</span><br><span class="line">  - conflicting requests</span><br><span class="line">(try to add &#x27;--allowerasing&#x27; to command line to replace conflicting packages or &#x27;--skip-broken&#x27; to skip uninstallable packages)</span><br></pre></td></tr></table></figure>
+<p>此时我们只能删除自定义的配方转而使用官方的配方。</p>
+<h2 id="do-deploy-source-date-epoch-PermissionError-怎么解决"><a href="#do-deploy-source-date-epoch-PermissionError-怎么解决" class="headerlink" title="do_deploy_source_date_epoch PermissionError  怎么解决"></a><code>do_deploy_source_date_epoch PermissionError</code>  怎么解决</h2><p>答: 检查下变量 <code>EXTERNALSRC_BUILD</code>，他设错了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ERROR: kconfig-native-1.0-r0 do_deploy_source_date_epoch: PermissionError(13, &#x27;Permission denied&#x27;)</span><br><span class="line">ERROR: Logfile of failure stored in: /home/lengjing/data/cbuild-ng/build/tmp/work/x86_64-linux/kconfig-native/1.0-r0/temp/log.do_deploy_source_date_epoch.27600</span><br><span class="line">Log data follows:</span><br><span class="line">| DEBUG: Executing python function create_source_date_epoch_stamp</span><br><span class="line">| DEBUG: No tarball or git repo found to determine SOURCE_DATE_EPOCH</span><br><span class="line">| DEBUG: Using SOURCE_DATE_EPOCH_FALLBACK</span><br><span class="line">| DEBUG: SOURCE_DATE_EPOCH: 1302044400</span><br><span class="line">| DEBUG: Python function create_source_date_epoch_stamp finished</span><br><span class="line">| DEBUG: Executing python function sstate_task_prefunc</span><br><span class="line">| DEBUG: Python function sstate_task_prefunc finished</span><br></pre></td></tr></table></figure>
+
+<h2 id="怎么设置使包每次编译都重新编译"><a href="#怎么设置使包每次编译都重新编译" class="headerlink" title="怎么设置使包每次编译都重新编译"></a>怎么设置使包每次编译都重新编译</h2><p>答：如果某个包每次编译都要重新编译，用户可以使用 <code>bitbake -f packagename</code> 强制编译，但是会有警告 <code>WARNING: xxx.bb:do_build is tainted from a forced run</code>, 如果不强制编译又要求每次编译都要重新编译，用户需要在配方文件中 <a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/bitbake/bitbake-user-manual/bitbake-user-manual-metadata.html?highlight=nostamp#variable-flags">设置任务属性</a> ：<br> <code>do_compile[nostamp] = &quot;1&quot;</code></p>
+<h2 id="如何自定义任务"><a href="#如何自定义任务" class="headerlink" title="如何自定义任务"></a>如何自定义任务</h2><p>答：自定义任务至少需要3个内容：任务函数、执行目录和任务声明。如果任务依赖其它包，还需要设置依赖。</p>
+<ul>
+<li>dirs 、depends 和 postfuncs 属性参考  <a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/bitbake/bitbake-user-manual/bitbake-user-manual-metadata.html?highlight=nostamp#variable-flags">设置任务属性</a> ，其中dirs列出的最后一个目录用作任务的 <a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/ref-manual/variables.html#term-B">当前工作目录</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.yoctoproject.org/bitbake/bitbake-user-manual/bitbake-user-manual-metadata.html?highlight=addtask#promoting-a-function-to-a-task">addtask</a> 还可以增加 <code>before</code> （执行其它任务时先执行此任务） 和 <code>after</code> （执行此任务时先执行其它任务） 说明</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">do_<span class="variable">$&#123;task_name&#125;</span> () &#123;</span><br><span class="line">	oe_runmake <span class="variable">$&#123;task_name&#125;</span></span><br><span class="line">&#125;</span><br><span class="line">do_<span class="variable">$&#123;task_name&#125;</span>[<span class="built_in">dirs</span>] = <span class="string">&quot;<span class="variable">$&#123;B&#125;</span>&quot;</span></span><br><span class="line">do_<span class="variable">$&#123;task_name&#125;</span>[depends] += <span class="string">&quot;depend_package_name1:task_name depend_package_name2:task_name&quot;</span></span><br><span class="line">addtask <span class="variable">$&#123;task_name&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>例如增加自定义任务：加载特定Kconfig配置 user_defined_config 到当前配置的任务</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">do_user_defined_config</span></span> () &#123;</span><br><span class="line">	oe_runmake user_config</span><br><span class="line">&#125;</span><br><span class="line">do_user_defined_config[<span class="built_in">dirs</span>] = <span class="string">&quot;<span class="variable">$&#123;B&#125;</span>&quot;</span></span><br><span class="line">do_user_defined_config[nostamp] = <span class="string">&quot;1&quot;</span></span><br><span class="line">do_user_defined_config[depends] += <span class="string">&quot;kconfig-native:do_populate_sysroot&quot;</span></span><br><span class="line">do_user_defined_config[postfuncs] += <span class="string">&quot;do_setrecompile&quot;</span></span><br><span class="line">addtask user_defined_config</span><br></pre></td></tr></table></figure>
+
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://magesfc.github.io">mage</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://magesfc.github.io/mage/fa5fa95b78d6e132d7e2df8e2d76633e76def64c/">https://magesfc.github.io/mage/fa5fa95b78d6e132d7e2df8e2d76633e76def64c/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://magesfc.github.io" target="_blank">马哥私房菜</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/yocto/">yocto</a></div><div class="post_share"><div class="social-share" data-image="https://t.alcy.cc/fj/" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/null" target="_blank"><img class="post-qr-code-img" src= "/img/loading.gif" data-lazy-src="/null" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/null" target="_blank"><img class="post-qr-code-img" src= "/img/loading.gif" data-lazy-src="/null" alt="支付寶"/></a><div class="post-qr-code-desc">支付寶</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/mage/b9ae7e45f4e26a36f49c89c34179d5bee1fdd3ad/"><img class="next-cover" src= "/img/loading.gif" data-lazy-src="https://t.alcy.cc/fj/" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">MinIO学习单机部署和多机部署</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "/img/loading.gif" data-lazy-src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">mage</div><div class="author-info__description"> 这里是 马哥 的个人博客 </div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">221</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">238</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">44</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/mamh2021"><i class="fab fa-github"></i><span>GitHub</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/mamh2021" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Yocto-%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">Yocto 常见问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%8E%E4%B9%88%E5%AD%A6%E4%B9%A0-Yocto-%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3"><span class="toc-number">1.1.</span> <span class="toc-text">怎么学习 Yocto 官方文档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Yocto-%E9%85%8D%E6%96%B9%E6%A8%A1%E6%9D%BF"><span class="toc-number">1.2.</span> <span class="toc-text">Yocto 配方模板</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E5%86%99%E7%B1%BB%E6%96%87%E4%BB%B6-xxx-bbclass"><span class="toc-number">1.2.1.</span> <span class="toc-text">编写类文件 (xxx.bbclass)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E5%86%99%E9%85%8D%E6%96%B9%E6%96%87%E4%BB%B6-xxx-bb"><span class="toc-number">1.2.2.</span> <span class="toc-text">编写配方文件 (xxx.bb)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E5%86%99%E9%85%8D%E6%96%B9%E9%99%84%E5%8A%A0%E6%96%87%E4%BB%B6-xxx-bbappend"><span class="toc-number">1.2.3.</span> <span class="toc-text">编写配方附加文件 (xxx.bbappend)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Yocto-%E7%BC%96%E8%AF%91%E6%89%93%E8%A1%A5%E4%B8%81"><span class="toc-number">1.3.</span> <span class="toc-text">Yocto 编译打补丁</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Yocto-%E5%AE%98%E6%96%B9%E6%89%93%E8%A1%A5%E4%B8%81"><span class="toc-number">1.3.1.</span> <span class="toc-text">Yocto 官方打补丁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%89%93%E8%A1%A5%E4%B8%81-externalpatch-bbclass"><span class="toc-number">1.3.2.</span> <span class="toc-text">自定义打补丁 externalpatch.bbclass</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Yocto-%E7%BC%96%E8%AF%91%E5%92%8C%E6%99%AE%E9%80%9A%E7%BC%96%E8%AF%91%E6%9C%80%E5%A4%A7%E4%B8%8D%E5%90%8C%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">1.4.</span> <span class="toc-text">Yocto 编译和普通编译最大不同是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Yocto-%E6%80%8E%E4%B9%88%E5%AF%BC%E5%87%BA%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-number">1.5.</span> <span class="toc-text">Yocto 怎么导出环境变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Yocto-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%9C%89%E5%93%AA%E4%BA%9B"><span class="toc-number">1.6.</span> <span class="toc-text">Yocto 常用命令有哪些</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Yocto-%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E5%93%AA%E4%BA%9B%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">1.7.</span> <span class="toc-text">Yocto 需要注意哪些配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Yocto-%E6%80%8E%E4%B9%88%E4%BD%BF%E7%94%A8%E5%8F%98%E9%87%8F"><span class="toc-number">1.8.</span> <span class="toc-text">Yocto 怎么使用变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Yocto-%E6%80%8E%E4%B9%88%E5%8C%85%E5%90%AB%E5%85%B1%E4%BA%AB%E5%8A%9F%E8%83%BD%E7%9A%84%E6%96%87%E4%BB%B6"><span class="toc-number">1.9.</span> <span class="toc-text">Yocto 怎么包含共享功能的文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Yocto-%E5%A6%82%E4%BD%95%E5%9C%A8NFS%E4%B8%8B%E7%BC%96%E8%AF%91"><span class="toc-number">1.10.</span> <span class="toc-text">Yocto 如何在NFS下编译</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Yocto-%E7%9A%84%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%E5%9C%A8%E5%93%AA%E9%87%8C%E5%AE%9A%E4%B9%89"><span class="toc-number">1.11.</span> <span class="toc-text">Yocto 的目录结构在哪里定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#downloads-%E5%92%8C-sstate-cache-%E5%AD%98%E5%82%A8%E4%BA%86%E4%BB%80%E4%B9%88"><span class="toc-number">1.12.</span> <span class="toc-text">downloads 和 sstate-cache 存储了什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%9C%A8%E6%9C%AC%E5%9C%B0%E6%90%AD%E5%BB%BA%E9%95%9C%E5%83%8F%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8A%A0%E9%80%9F%E6%9E%84%E5%BB%BA"><span class="toc-number">1.13.</span> <span class="toc-text">如何在本地搭建镜像服务器加速构建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Yocto-%E8%8E%B7%E5%8F%96%E6%BA%90%E7%A0%81%E5%92%8C%E4%B8%8D%E9%87%8D%E6%96%B0%E7%BC%96%E8%AF%91%E7%9A%84%E8%A7%84%E5%88%99"><span class="toc-number">1.14.</span> <span class="toc-text">Yocto 获取源码和不重新编译的规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BA%E7%8E%B0%E5%AE%98%E6%96%B9%E8%87%AA%E5%B8%A6%E5%BC%80%E6%BA%90%E5%8C%85%E7%BC%96%E8%AF%91%E9%94%99%E8%AF%AF%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86"><span class="toc-number">1.15.</span> <span class="toc-text">出现官方自带开源包编译错误如何处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%A4%96%E9%83%A8linux%E6%A8%A1%E5%9D%97%E7%9A%84%E9%85%8D%E6%96%B9%E6%96%87%E4%BB%B6%E5%90%8D%E4%BB%A5-kernel-module-%E5%BC%80%E5%A4%B4"><span class="toc-number">1.16.</span> <span class="toc-text">为什么外部linux模块的配方文件名以 kernel-module- 开头</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E6%96%B9%E4%B8%AD%E5%A6%82%E4%BD%95%E6%94%AF%E6%8C%81menuconfig"><span class="toc-number">1.17.</span> <span class="toc-text">配方中如何支持menuconfig</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E7%A6%81%E6%AD%A2%E7%BC%96%E8%AF%91%E5%9C%A8%E6%BA%90%E7%A0%81%E5%88%9B%E5%BB%BA-oe-workdir-%E5%92%8C-oe-logs-%E7%AC%A6%E5%8F%B7%E9%93%BE%E6%8E%A5"><span class="toc-number">1.18.</span> <span class="toc-text">如何禁止编译在源码创建 oe-workdir 和 oe-logs 符号链接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Please-use-a-umask-which-allows-a-rx-and-u-rwx-%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3"><span class="toc-number">1.19.</span> <span class="toc-text">Please use a umask which allows a+rx and u+rwx 怎么解决</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#aarch64-poky-linux-ld-bfd-cannot-find-libgcc-a-No-such-file-or-directory-%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3"><span class="toc-number">1.20.</span> <span class="toc-text">aarch64-poky-linux-ld.bfd: cannot find libgcc.a: No such file or directory 怎么解决</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#QA-Issue-ldflags-%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3"><span class="toc-number">1.21.</span> <span class="toc-text">QA Issue [ldflags] 怎么解决</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#QA-Issue-dev-so-%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3"><span class="toc-number">1.22.</span> <span class="toc-text">QA Issue [dev-so] 怎么解决</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#QA-Issue-file-rdeps-%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3"><span class="toc-number">1.23.</span> <span class="toc-text">QA Issue [file-rdeps] 怎么解决</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#QA-Issue-already-stripped-%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3"><span class="toc-number">1.24.</span> <span class="toc-text">QA Issue [already-stripped] 怎么解决</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Error-Unable-to-find-a-match-lt-packagename-gt-%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3"><span class="toc-number">1.25.</span> <span class="toc-text">Error: Unable to find a match: &lt;packagename&gt; 怎么解决</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Yocto-%E5%AE%98%E6%96%B9%E6%98%8E%E6%98%8E%E6%8F%90%E4%BE%9B%E4%BA%86%E6%9F%90%E4%B8%AA%E5%8C%85%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88-bitbake-%E8%BF%99%E4%B8%AA%E5%8C%85%E8%BF%98%E6%98%AF%E6%8A%A5%E6%89%BE%E4%B8%8D%E5%88%B0%E8%BF%99%E4%B8%AA%E5%8C%85"><span class="toc-number">1.26.</span> <span class="toc-text">Yocto 官方明明提供了某个包，为什么 bitbake 这个包还是报找不到这个包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Error-Transaction-test-error-%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3"><span class="toc-number">1.27.</span> <span class="toc-text">Error: Transaction test error: 怎么解决</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#do-deploy-source-date-epoch-PermissionError-%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3"><span class="toc-number">1.28.</span> <span class="toc-text">do_deploy_source_date_epoch PermissionError  怎么解决</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%8E%E4%B9%88%E8%AE%BE%E7%BD%AE%E4%BD%BF%E5%8C%85%E6%AF%8F%E6%AC%A1%E7%BC%96%E8%AF%91%E9%83%BD%E9%87%8D%E6%96%B0%E7%BC%96%E8%AF%91"><span class="toc-number">1.29.</span> <span class="toc-text">怎么设置使包每次编译都重新编译</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BB%BB%E5%8A%A1"><span class="toc-number">1.30.</span> <span class="toc-text">如何自定义任务</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/mage/fa5fa95b78d6e132d7e2df8e2d76633e76def64c/" title="Yocto学习之Yocto常见问题"><img src= "/img/loading.gif" data-lazy-src="https://t.alcy.cc/fj/" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Yocto学习之Yocto常见问题"/></a><div class="content"><a class="title" href="/mage/fa5fa95b78d6e132d7e2df8e2d76633e76def64c/" title="Yocto学习之Yocto常见问题">Yocto学习之Yocto常见问题</a><time datetime="2025-05-17T01:06:25.000Z" title="更新于 2025-05-17 09:06:25">2025-05-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/mage/b9ae7e45f4e26a36f49c89c34179d5bee1fdd3ad/" title="MinIO学习单机部署和多机部署"><img src= "/img/loading.gif" data-lazy-src="https://t.alcy.cc/fj/" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MinIO学习单机部署和多机部署"/></a><div class="content"><a class="title" href="/mage/b9ae7e45f4e26a36f49c89c34179d5bee1fdd3ad/" title="MinIO学习单机部署和多机部署">MinIO学习单机部署和多机部署</a><time datetime="2024-07-13T06:28:43.000Z" title="更新于 2024-07-13 14:28:43">2024-07-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/mage/16d024063e7cec0ef93ef666792cfeedca27d68d/" title="Android编译关于build_custom_image的理解"><img src= "/img/loading.gif" data-lazy-src="https://t.alcy.cc/fj/" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Android编译关于build_custom_image的理解"/></a><div class="content"><a class="title" href="/mage/16d024063e7cec0ef93ef666792cfeedca27d68d/" title="Android编译关于build_custom_image的理解">Android编译关于build_custom_image的理解</a><time datetime="2024-07-13T00:33:49.000Z" title="更新于 2024-07-13 08:33:49">2024-07-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/mage/aa0af4bc38dba1d1b8eff500c83a4cd04e00d596/" title="Android编译关于generate_extra_images.mk的理解"><img src= "/img/loading.gif" data-lazy-src="https://t.alcy.cc/fj/" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Android编译关于generate_extra_images.mk的理解"/></a><div class="content"><a class="title" href="/mage/aa0af4bc38dba1d1b8eff500c83a4cd04e00d596/" title="Android编译关于generate_extra_images.mk的理解">Android编译关于generate_extra_images.mk的理解</a><time datetime="2024-07-13T00:33:49.000Z" title="更新于 2024-07-13 08:33:49">2024-07-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/mage/5295cf99982adb8508db75b4a8d1ecfc973fda91/" title="Android编译之高通wlan的构建"><img src= "/img/loading.gif" data-lazy-src="https://t.alcy.cc/fj/" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Android编译之高通wlan的构建"/></a><div class="content"><a class="title" href="/mage/5295cf99982adb8508db75b4a8d1ecfc973fda91/" title="Android编译之高通wlan的构建">Android编译之高通wlan的构建</a><time datetime="2024-07-13T00:33:49.000Z" title="更新于 2024-07-13 08:33:49">2024-07-13</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://t.alcy.cc/fj/')"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2025 By mage</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(() => {
+  const $mermaidWrap = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaidWrap.length) {
+    window.runMermaid = () => {
+      window.loadMermaid = true
+      const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+      Array.from($mermaidWrap).forEach((item, index) => {
+        const mermaidSrc = item.firstElementChild
+        const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+        const mermaidID = 'mermaid-' + index
+        const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+        mermaid.mermaidAPI.render(mermaidID, mermaidDefinition, (svgCode) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svgCode)
+        })
+      })
+    }
+
+    const loadMermaid = () => {
+      window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaid)
+    }
+
+    window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+  }
+})()</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="true" data-click="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
